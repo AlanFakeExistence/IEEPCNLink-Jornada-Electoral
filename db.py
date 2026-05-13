@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv(Path(__file__).parent / ".env")
 
 # ── Configuración ────────────────────────────────────────────────────────────
-USE_MOCK_DATA = False  # ← Cambiar a False para usar PostgreSQL real
+USE_MOCK_DATA = os.getenv("USE_MOCK_DATA", "false").lower() == "true"
 DATABASE_URL  = os.getenv("DATABASE_URL", "")
 
 QUERIES_DIR = Path(__file__).parent / "queries"
