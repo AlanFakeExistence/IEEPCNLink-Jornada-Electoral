@@ -88,15 +88,14 @@ st.divider()
 
 # ── KPIs ──────────────────────────────────────────────────────────────────────
 row = pulso.iloc[0] if not pulso.empty else {}
-c1, c2, c3, c4, c5, c6, c7, c8 = st.columns(8)
-c1.metric("📋 Total",             int(row.get("total",             0)))
-c2.metric("⏳ Pendientes",        int(row.get("pendientes",        0)))
-c3.metric("🏛️ Instaladas",        int(row.get("instaladas",        0)))
-c4.metric("🗳️ Votando",           int(row.get("votando",           0)))
-c5.metric("🧮 En cómputo",        int(row.get("en_computo",        0)))
-c6.metric("📦 Paquete integrado", int(row.get("paquete_integrado", 0)))
-c7.metric("🚗 En traslado",       int(row.get("en_traslado",       0)))
-c8.metric("✅ Recibidas CME",      int(row.get("recibidas_cme",     0)))
+c1, c2, c3, c4, c5, c6, c7 = st.columns(7)
+c1.metric("📋 Total",       int(row.get("total",         0)))
+c2.metric("⏳ Pendientes",  int(row.get("pendientes",    0)))
+c3.metric("🏛️ Instaladas",  int(row.get("instaladas",    0)))
+c4.metric("🗳️ Votando",     int(row.get("votando",       0)))
+c5.metric("🧮 En cómputo",  int(row.get("en_computo",    0)))
+c6.metric("🚗 En traslado", int(row.get("en_traslado",   0)))
+c7.metric("✅ Recibidas CME", int(row.get("recibidas_cme", 0)))
 st.divider()
 
 # ── Pestañas ──────────────────────────────────────────────────────────────────
