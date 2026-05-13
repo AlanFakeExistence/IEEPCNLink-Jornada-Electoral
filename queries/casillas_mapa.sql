@@ -1,4 +1,4 @@
-SELECT
+SELECT DISTINCT ON (c.id)
   c.id,
   c.seccion,
   c.clave,
@@ -13,7 +13,8 @@ SELECT
   u.nombre     AS cael_responsable,
   EXTRACT(EPOCH FROM (NOW() - c.updated_at)) / 60 AS minutos_sin_reporte
 FROM casillas c
-JOIN municipios m  ON m.id  = c.municipio_id
-JOIN ares       ar ON ar.id = c.are_id
-JOIN zores      z  ON z.id  = ar.zore_id
-LEFT JOIN usuarios u ON u.are_id = c.are_id AND u.rol = 'cael';
+LEFT JOIN municipios m  ON m.id  = c.municipio_id
+LEFT JOIN ares       ar ON ar.id = c.are_id
+LEFT JOIN zores      z  ON z.id  = ar.zore_id
+LEFT JOIN usuarios u ON u.are_id = c.are_id AND u.rol = 'cael'
+ORDER BY c.id;

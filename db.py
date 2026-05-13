@@ -202,4 +202,29 @@ def _mock(nombre: str) -> pd.DataFrame:
             {"id":"u6","nombre":"Pedro Sánchez", "rol":"cael","disponible":True,  "are":"ARE-06","zore":"ZORE-02","total_casillas":5,"completadas":4,"incidencias_abiertas":0,"indice_carga":0.00},
         ])
 
+    if nombre == "incidencias_activas":
+        return pd.DataFrame([
+            {
+                "id": "i1", "tipo": "robo_material", "prioridad": "critica",
+                "descripcion": "Personas armadas llegaron a la casilla y se llevaron el paquete electoral.",
+                "estatus": "abierta", "hora_reporte": now - timedelta(minutes=10), "hora_cierre": None,
+                "seccion": "0312", "clave": "0312 B", "municipio": "Monterrey",
+                "are": "ARE-02", "zore": "ZORE-01", "reportado_por": "María López",
+            },
+            {
+                "id": "i2", "tipo": "falta_funcionariado", "prioridad": "alta",
+                "descripcion": "Presidente de casilla no llegó, 25 minutos de retraso.",
+                "estatus": "abierta", "hora_reporte": now - timedelta(minutes=28), "hora_cierre": None,
+                "seccion": "1205", "clave": "1205 C1", "municipio": "San Nicolás",
+                "are": "ARE-03", "zore": "ZORE-01", "reportado_por": "Carlos Reyes",
+            },
+            {
+                "id": "i3", "tipo": "error_actas", "prioridad": "media",
+                "descripcion": "Duda en llenado de acta de instalación, CAEL solicita apoyo.",
+                "estatus": "en_atencion", "hora_reporte": now - timedelta(minutes=55), "hora_cierre": None,
+                "seccion": "0521", "clave": "0521 A", "municipio": "Apodaca",
+                "are": "ARE-04", "zore": "ZORE-02", "reportado_por": "Rosa Herrera",
+            },
+        ])
+
     return pd.DataFrame()

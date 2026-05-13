@@ -13,9 +13,8 @@ SELECT
   cc.hora                 AS hora_evento,
   cc.responsable_nombre   AS responsable
 FROM paquetes_electorales p
-JOIN casillas        c  ON c.id  = p.casilla_id
-JOIN municipios      m  ON m.id  = c.municipio_id
+LEFT JOIN casillas        c  ON c.id  = p.casilla_id
+LEFT JOIN municipios      m  ON m.id  = c.municipio_id
 LEFT JOIN cadena_custodia cc ON cc.paquete_id = p.id
-WHERE p.estatus != 'entregado_cme'
-ORDER BY p.id, cc.hora ASC
-LIMIT 200;
+WHERE p.estatus NOT IN ('en_casilla', 'entregado_cme')
+ORDER BY p.id, cc.hora ASC;
