@@ -7,7 +7,6 @@ from datetime import datetime
 from pathlib import Path
 
 from db import run_query, is_demo
-from config import ESTATUS_LABEL
 from tabs import estado_global, sin_reporte, alertas, incidencias, custodia, disponibilidad
 
 # ── Configuración de página ───────────────────────────────────────────────────
