@@ -1,0 +1,3 @@
+/* Ocultar elementos default de Streamlit */
+#MainMenu { visibility: hidden; }
+footer    { visibility: hidden; }
